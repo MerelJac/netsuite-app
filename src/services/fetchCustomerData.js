@@ -1,10 +1,8 @@
-export const fetchCustomerData = async () => {
+export const fetchCustomerData = async (offset = 0, limit = 10) => {
   try {
-    const token = 'c23d18d2da5ed79037efe0335886818cd90a489f65103f4a6474430a8e957cbb';
-    const response = await fetch('https://3519184.app.netsuite.com/app/site/hosting/scriptlet.nl?script=1655&deploy=1', {
+    const response = await fetch(`/app/site/hosting/scriptlet.nl?script=1655&deploy=1&limit=${limit}&offset=${offset}`, {
       method: 'GET',
       headers: {
-        'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json',
       }
     });
